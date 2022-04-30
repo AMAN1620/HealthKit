@@ -1,0 +1,60 @@
+package com.example.aman.healthKit.home;
+
+
+
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.example.aman.healthKit.home.fragments.DateFragment;
+import com.example.aman.healthKit.home.fragments.DoctorFragment;
+import com.example.aman.healthKit.home.fragments.SpecializationFragment;
+
+
+public class SectionPagerAdapter extends FragmentPagerAdapter {
+
+    public SectionPagerAdapter(FragmentManager fm) {
+        super(fm);
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        switch (position){
+            case 0:
+                SpecializationFragment specializationFragment = new SpecializationFragment();
+                return specializationFragment;
+
+            case 1:
+                DoctorFragment doctorFragment = new DoctorFragment();
+                return doctorFragment;
+
+            case 2:
+                DateFragment dateFragment = new DateFragment();
+                return dateFragment;
+
+            default:
+                return null;
+
+        }
+    }
+
+    @Override
+    public int getCount() {
+        return 3;
+    }
+
+    public CharSequence getPageTitle(int position) {
+        switch (position){
+            case 0:
+                return "SPECIALIZATION";
+            case 1:
+                return "DOCTOR";
+            case 2:
+                return "DATE";
+
+            default:
+                return null;
+        }
+    }
+}
